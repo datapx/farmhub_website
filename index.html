@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarmHub.AI - Advanced AI with Regional Language Support (Hindi/Marathi) for Smart Agriculture</title>
+    <meta name="description" content="Transform farming with AI in Hindi, Marathi & English. Help farmers and government increase crop yields by 35% using regional language AI, satellite monitoring, and smart farming solutions.">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #00C851;
+            --primary-yellow: #FFD700;
+            --dark-gray: #1a1a1a;
+            --medium-gray: #2d2d2d;
+            --light-gray: #f8f9fa;
+            --metallic-silver: #C0C0C0;
+            --metallic-dark: #4A5568;
+            --tech-blue: #2D3748;
+            --white: #ffffff;
+            --text-dark: #1a202c;
+            --text-light: #718096;
+            --shadow: 0 15px 35px rgba(0,0,0,0.1);
+            --shadow-heavy: 0 25px 50px rgba(0,0,0,0.25);
+            --gradient-1: linear-gradient(135deg, #00C851 0%, #00A843 100%);
+            --gradient-2: linear-gradient(135deg, #FFD700 0%, #FFA000 100%);
+            --gradient-tech: linear-gradient(135deg, #2D3748 0%, #4A5568 50%, #718096 100%);
+            --gradient-metallic: linear-gradient(135deg, #E2E8F0 0%, #CBD5E0 50%, #A0AEC0 100%);
+            --gradient-dark: linear-gradient(135deg, #1a202c 0%, #2D3748 100%);
+            --section-padding: 6rem 2rem;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background: var(--white);
+        }
+
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid var(--gradient-metallic);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 900;
+            text-decoration: none;
+            letter-spacing: -2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .logo .farm { color: var(--primary-green); }
+        .logo .hub { color: var(--primary-yellow); }
+        .logo .ai {
+            color: var(--dark-gray);
+            background: var(--gradient-metallic);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-green);
+            transform: translateY(-2px);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--gradient-tech);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 100px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+        }
+
+        .hero-highlight {
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 3rem;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 60px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 30px 60px rgba(0, 200, 81, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--gradient-metallic);
+            color: var(--dark-gray);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(15px);
+            font-weight: 800;
+        }
+
+        .btn-secondary:hover {
+            background: var(--gradient-2);
+            color: white;
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        .hero-visual {
+            position: relative;
+            text-align: center;
+        }
+
+        .chat-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .feature-callouts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .callout-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 1.5rem;
+            text-align: center;
+            color: white;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .callout-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.25);
+            border-color: var(--primary-green);
+        }
+
+        .callout-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .callout-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .callout-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary-yellow);
+        }
+
+        .callout-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .callout-card p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .chat-mockup {
+            width: 420px;
+            height: 650px;
+            background: var(--gradient-dark);
+            border-radius: 50px;
+            padding: 25px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-heavy);
+            position: relative;
+            overflow: hidden;
+            border: 3px solid var(--metallic-silver);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: all 0.4s ease;
+        }
+
+        .chat-mockup:hover {
+            transform: perspective(1000px) rotateY(0deg) scale(1.02);
+        }
+
+        .chat-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, #f8f9fa, #ffffff);
+            border-radius: 40px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .chat-header {
+            background: var(--gradient-1);
+            color: white;
+            padding: 1.8rem 1.5rem;
+            text-align: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+            position: relative;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .chat-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-2);
+        }
+
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+            background: rgba(76, 175, 80, 0.1);
+            font-size: 0.9rem;
+            color: var(--primary-green);
+            font-weight: 600;
+        }
+
+        .status-online {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .online-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary-green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .chat-content {
+            flex: 1;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            overflow-y: auto;
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+        }
+
+        .chat-bubble {
+            max-width: 85%;
+            padding: 1.2rem 1.8rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            position: relative;
+            animation: slideIn 0.5s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .chat-bubble.user {
+            background: var(--gradient-metallic);
+            color: var(--dark-gray);
+            align-self: flex-end;
+            font-weight: 600;
+            border-bottom-right-radius: 8px;
+        }
+
+        .chat-bubble.ai {
+            background: var(--gradient-1);
+            color: white;
+            align-self: flex-start;
+            font-weight: 500;
+            border-bottom-left-radius: 8px;
+        }
+
+        .chat-bubble::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .chat-bubble.user::before {
+            right: -8px;
+            border: 8px solid transparent;
+            border-left-color: var(--metallic-silver);
+            border-bottom: none;
+        }
+
+        .chat-bubble.ai::before {
+            left: -8px;
+            border: 8px solid transparent;
+            border-right-color: var(--primary-green);
+            border-bottom: none;
+        }
+
+        .language-tag {
+            font-size: 0.7rem;
+            opacity: 0.8;
+            font-style: italic;
+            margin-top: 0.3rem;
+        }
+
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            background: rgba(76, 175, 80, 0.1);
+            border-radius: 20px;
+            align-self: flex-start;
+            margin-top: 0.5rem;
+        }
+
+        .typing-dots {
+            display: flex;
+            gap: 0.3rem;
+        }
+
+        .typing-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--primary-green);
+            border-radius: 50%;
+            animation: typingBounce 1.4s infinite ease-in-out;
+        }
+
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+        .typing-dot:nth-child(3) { animation-delay: 0s; }
+
+        .bottom-callouts {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 500px;
+            margin-top: 1rem;
+        }
+
+        .bottom-callout {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 1rem;
+            text-align: center;
+            color: white;
+            flex: 1;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .bottom-callout:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+        }
+
+        .bottom-callout i {
+            font-size: 1.5rem;
+            color: var(--primary-yellow);
+            margin-bottom: 0.5rem;
+        }
+
+        .bottom-callout span {
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes typingBounce {
+            0%, 80%, 100% {
+                transform: scale(0);
+            }
+            40% {
+                transform: scale(1);
+            }
+        }
+
+        /* LLM Integration Section */
+        .llm-integration {
+            padding: var(--section-padding);
+            background: white;
+            position: relative;
+        }
+
+        .llm-integration::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-metallic);
+        }
+
+        /* What We Do Section */
+        .what-we-do {
+            padding: var(--section-padding);
+            background: var(--light-gray);
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-title h2 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .section-title p {
+            font-size: 1.4rem;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 500;
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 4rem;
+            margin-bottom: 5rem;
+        }
+
+        .value-card {
+            background: white;
+            padding: 4rem 3rem;
+            border-radius: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-heavy);
+            transition: all 0.4s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: var(--gradient-1);
+        }
+
+        .value-card.government::before {
+            background: var(--gradient-2);
+        }
+
+        .value-card.llm::before {
+            background: var(--gradient-metallic);
+        }
+
+        .value-icon {
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            color: var(--primary-green);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .value-card.government .value-icon {
+            color: var(--primary-yellow);
+        }
+
+        .value-card.llm .value-icon {
+            background: var(--gradient-metallic);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .value-card h3 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .value-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .benefits-list {
+            list-style: none;
+            text-align: left;
+        }
+
+        .benefits-list li {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.2rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .benefits-list i {
+            color: var(--primary-green);
+            font-size: 1.4rem;
+            min-width: 24px;
+        }
+
+        /* AI Technology Section */
+        .ai-technology {
+            padding: var(--section-padding);
+            background: white;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+
+        .tech-content h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+        }
+
+        .tech-content p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        .tech-features {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .tech-features li {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem 0;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .tech-features i {
+            color: var(--primary-green);
+            font-size: 1.4rem;
+            min-width: 24px;
+        }
+
+        .tech-visual {
+            background: var(--light-gray);
+            border-radius: 30px;
+            padding: 3rem;
+            box-shadow: var(--shadow-heavy);
+            border: 3px solid var(--metallic-silver);
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 3px solid var(--metallic-silver);
+        }
+
+        .dashboard-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--primary-green);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .metric-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-green);
+            margin-bottom: 0.8rem;
+        }
+
+        .metric-label {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: var(--section-padding);
+            background: var(--light-gray);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: white;
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--gradient-1);
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-metallic);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--dark-gray);
+            box-shadow: var(--shadow);
+        }
+
+        .step-card h4 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .step-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        /* Statistics Section */
+        .stats {
+            padding: 5rem 2rem;
+            background: var(--gradient-tech);
+            color: white;
+        }
+
+        .stats-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+        }
+
+        .stat-item p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            font-weight: 600;
+        }
+
+        /* Features Grid */
+        .features {
+            padding: var(--section-padding);
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            background: var(--light-gray);
+            padding: 3rem 2rem;
+            border-radius: 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: var(--shadow-heavy);
+            border-color: var(--metallic-silver);
+            background: white;
+        }
+
+        .feature-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2.5rem;
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .feature-card h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: var(--section-padding);
+            background: var(--light-gray);
+        }
+
+        .contact-content {
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin: 4rem 0;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--metallic-silver);
+        }
+
+        .contact-card i {
+            font-size: 3rem;
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-card h4 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .contact-card p {
+            color: var(--text-light);
+            margin: 0;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gradient-dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 3rem;
+            text-decoration: none;
+        }
+
+        .footer-logo .farm { color: var(--primary-green); }
+        .footer-logo .hub { color: var(--primary-yellow); }
+        .footer-logo .ai {
+            background: var(--gradient-metallic);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-content {
+            margin-bottom: 3rem;
+        }
+
+        .footer-content p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 500;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .social-links a {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-metallic);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-gray);
+            text-decoration: none;
+            transition: all 0.4s ease;
+            font-weight: 700;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-green);
+            color: white;
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        .footer-bottom {
+            border-top: 2px solid rgba(255, 255, 255, 0.2);
+            padding-top: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-25px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 4rem 1rem;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: var(--shadow-heavy);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.4s ease;
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+                padding: 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .value-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .chat-mockup {
+                width: 300px;
+                height: 500px;
+            }
+
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+
+            .nav-container {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .chat-mockup {
+                width: 350px;
+                height: 550px;
+                transform: none;
+            }
+
+            .feature-callouts {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+
+            .callout-card {
+                padding: 1rem;
+            }
+
+            .callout-card h4 {
+                font-size: 0.9rem;
+            }
+
+            .callout-card p {
+                font-size: 0.7rem;
+            }
+
+            .bottom-callouts {
+                flex-direction: row;
+                gap: 0.5rem;
+            }
+
+            .bottom-callout {
+                padding: 0.8rem;
+                margin: 0 0.2rem;
+            }
+
+            .bottom-callout span {
+                font-size: 0.7rem;
+            }
+
+            .btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+
+            .value-card {
+                padding: 3rem 2rem;
+            }
+        }
+
+        /* Utility Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glow {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <span class="farm">Farm</span><span class="hub">Hub</span><span class="ai">.AI</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#what-we-do">Solutions</a></li>
+                <li><a href="#llm-integration">AI Assistant</a></li>
+                <li><a href="#ai-technology">AI Technology</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" class="btn btn-primary">START FREE TRIAL</a></li>
+            </ul>
+            <button class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content fade-in">
+                <h1>
+                    <strong>AI-Powered Agriculture</strong><br>
+                    with <span class="hero-highlight">All Regional Languages</span>
+                </h1>
+                <p>
+                    <strong>Revolutionary farming intelligence</strong> powered by advanced AI technology.
+                    <strong>Chat with your farm in 15+ Indian languages</strong> including Hindi, Marathi, Gujarati, Pubjabi, i, and more. Get instant AI insights and increase yields by up to
+                    <strong>35%</strong> through cutting-edge conversational AI and satellite monitoring.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#llm-integration" class="btn btn-primary">
+                        <i class="fas fa-comments"></i>
+                        TRY AI ASSISTANT
+                    </a>
+                    <a href="#ai-technology" class="btn btn-secondary">
+                        <i class="fas fa-rocket"></i>
+                        EXPLORE TECH
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual fade-in">
+                <div class="chat-container">
+                  <!-- Enhanced Chat Mockup -->
+                  <div class="chat-mockup">
+                      <div class="chat-screen">
+                          <div class="chat-header">
+                              <i class="fas fa-robot glow"></i> FarmHub AI Assistant
+                          </div>
+                          <div class="status-bar">
+                              <div class="status-online">
+                                  <div class="online-dot"></div>
+                                  <span>AI Online • All Languages</span>
+                              </div>
+                              <span>🌾 Farm Mode</span>
+                          </div>
+                          <div class="chat-content">
+                              <div class="chat-bubble user">
+                                  शेतात भात पिकाचे आरोग्य कसे आहे?
+                                  <div class="language-tag">Marathi</div>
+                              </div>
+                              <div class="chat-bubble ai">
+                                  🌾 उत्तम! ऊसाचे आरोग्य 92% आहे. NDVI डेटानुसार ऊस उत्तम वाढत आहे. पुढच्या आठवड्यात 19:19:19 खत द्या.
+                                  <div class="language-tag">AI Response in Marathi</div>
+                              </div>
+
+                              <div class="chat-bubble user">
+                                  कल बारिश होगी क्या मेरे खेत में?
+                                  <div class="language-tag">Hindi</div>
+                              </div>
+                              <div class="chat-bubble ai">
+                                  ☔ हां! कल शाम को 75% बारिश की संभावना. 18mm बारिश होगी. आज पानी न दें, पैसे बचाएं!
+                                  <div class="language-tag">AI Response in Hindi</div>
+                              </div>
+
+                              <div class="chat-bubble user">
+                                  What's the market price for wheat today?
+                                  <div class="language-tag">English</div>
+                              </div>
+                              <div class="chat-bubble ai">
+                                  📈 Current wheat: ₹2,450/quintal ↗️ Up 3.2% from yesterday. Sell next week for maximum profit!
+                                  <div class="language-tag">AI Response in English</div>
+                              </div>
+
+                              <div class="chat-bubble user">
+                                  నా దోమె మొక్కల్లో పసుపు ఆకులు ఎందుకు?
+                                  <div class="language-tag">Telugu</div>
+                              </div>
+
+                              <div class="typing-indicator">
+                                  <span>AI typing...</span>
+                                  <div class="typing-dots">
+                                      <div class="typing-dot"></div>
+                                      <div class="typing-dot"></div>
+                                      <div class="typing-dot"></div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                    <!-- Bottom Callouts -->
+                    <div class="bottom-callouts">
+                        <div class="bottom-callout">
+                            <i class="fas fa-microphone"></i>
+                            <span>Voice Commands</span>
+                        </div>
+                        <div class="bottom-callout">
+                            <i class="fas fa-camera"></i>
+                            <span>Photo Analysis</span>
+                        </div>
+                        <div class="bottom-callout">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Live Analytics</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LLM Integration Section -->
+    <section id="llm-integration" class="llm-integration">
+        <div class="section-container">
+            <div class="section-title fade-in">
+                <h2><strong>AI Assistant for All Indian Languages</strong></h2>
+                <p>
+                    <strong>Communicate with your farm in any Indian language.</strong> Our advanced AI assistant provides
+                    instant, conversational access to agricultural data and insights in 15+ regional languages including Hindi, Marathi, Gujarati, Pubjabi, and more.
+                </p>
+            </div>
+
+            <div class="value-grid">
+                <div class="value-card llm fade-in">
+                    <div class="value-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3><strong>Regional Language AI</strong></h3>
+                    <p><strong>Chat naturally in your mother tongue.</strong> Ask questions in Hindi, Marathi, Gujarati, Pubjabi, or any of 15+ supported Indian languages and get instant, intelligent responses powered by advanced language models that understand regional farming contexts.</p>
+                    <ul class="benefits-list">
+                        <li><i class="fas fa-check-circle"></i> <span><strong>15+ Indian languages support</strong> - "मेरे खेत में क्या करूं?" "शेतात काय करावं?" "నా పొలంలో ఏమి చేయాలి?"</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Regional farming wisdom</strong> - Local practices & traditional knowledge integration</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Instant data analysis</strong> - Real-time insights in your preferred language</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Voice commands</strong> - Hands-free operation in any regional language</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Learning conversations</strong> - AI gets smarter with regional context over time</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>24/7 multilingual support</strong> - Always ready to help in your language</span></li>
+                    </ul>
+                </div>
+
+                <div class="value-card fade-in">
+                    <div class="value-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3><strong>For Smart Farmers</strong></h3>
+                    <p><strong>Transform decision-making with AI conversations in your language.</strong> Get personalized recommendations through natural chat interactions that understand your unique farming context and regional agricultural practices.</p>
+                    <ul class="benefits-list">
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Increase yields by 35%</strong> with AI guidance in your native language</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Reduce costs by 25%</strong> through optimization & local market insights</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Instant expert advice</strong> - 24/7 agricultural knowledge in any Indian language</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Predictive alerts</strong> - Problems detected before they happen</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Market intelligence</strong> - Local price predictions & regional trends</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Weather insights</strong> - Hyperlocal forecasting for your specific region</span></li>
+                    </ul>
+                </div>
+
+                <div class="value-card government fade-in">
+                    <div class="value-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3><strong>For Government</strong></h3>
+                    <p><strong>Policy insights through multilingual AI conversations.</strong> Query national agricultural data, monitor food security across states, and make data-driven policy decisions through natural language interfaces in multiple Indian languages.</p>
+                    <ul class="benefits-list">
+                        <li><i class="fas fa-check-circle"></i> <span><strong>National yield monitoring</strong> - Real-time state-wise dashboard</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Food security analysis</strong> - Predictive modeling across regions</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Subsidy optimization</strong> - AI-driven distribution with regional language support</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Crisis prediction</strong> - Early warning systems for all states</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Policy impact analysis</strong> - Data-driven decisions with regional insights</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Sustainability tracking</strong> - Environmental metrics across India</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Technology Section -->
+    <section id="ai-technology" class="ai-technology">
+        <div class="section-container">
+            <div class="section-title fade-in">
+                <h2><strong>Advanced AI Technology Stack</strong></h2>
+                <p><strong>Cutting-edge artificial intelligence</strong> with LLM integration, satellite intelligence, and machine learning that revolutionizes agricultural decision-making.</p>
+            </div>
+
+            <!-- Feature Callouts Above Technology Content -->
+            <div class="feature-callouts" style="max-width: 1200px; margin: 0 auto 3rem; grid-template-columns: repeat(4, 1fr); gap: 2rem;">
+                <div class="callout-card" style="background: var(--gradient-1); color: white;">
+                    <div class="callout-icon">🌐</div>
+                    <h4>15+ Languages</h4>
+                    <p>Hindi, Marathi, Gujarati, Pubjabi & more</p>
+                </div>
+                <div class="callout-card" style="background: var(--gradient-2); color: var(--dark-gray);">
+                    <div class="callout-icon">⚡</div>
+                    <h4>Instant Response</h4>
+                    <p>Real-time AI answers in your native language</p>
+                </div>
+                <div class="callout-card" style="background: var(--gradient-metallic); color: var(--dark-gray);">
+                    <div class="callout-icon">🛰️</div>
+                    <h4>Satellite Data</h4>
+                    <p>Live farm monitoring & crop health analysis</p>
+                </div>
+                <div class="callout-card" style="background: var(--gradient-tech); color: white;">
+                    <div class="callout-icon">🎯</div>
+                    <h4>97% Accuracy</h4>
+                    <p>Precise predictions & recommendations</p>
+                </div>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-content fade-in">
+                    <h3>🤖 <strong>Multilingual AI & Deep Learning</strong></h3>
+                    <p>
+                        <strong>Advanced neural networks with comprehensive Indian language support</strong> analyze agricultural data to provide
+                        conversational insights in 15+ Indian languages, predict optimal decisions, and deliver <strong>97% accuracy</strong> in yield forecasting across all regional contexts.
+                    </p>
+                    <ul class="tech-features">
+                        <li><i class="fas fa-comments"></i> <span><strong>15+ Indian languages</strong> - Hindi, Marathi, Telugu, Tamil, Bengali, Gujarati & more</span></li>
+                        <li><i class="fas fa-brain"></i> <span><strong>Computer vision</strong> for crop health analysis with regional context</span></li>
+                        <li><i class="fas fa-chart-line"></i> <span><strong>Predictive yield modeling</strong> with 97% accuracy across India</span></li>
+                        <li><i class="fas fa-bug"></i> <span><strong>AI disease detection</strong> 48 hours early with local knowledge</span></li>
+                        <li><i class="fas fa-cloud-rain"></i> <span><strong>Weather pattern analysis</strong> & regional forecasting</span></li>
+                        <li><i class="fas fa-leaf"></i> <span><strong>Soil optimization algorithms</strong> for Indian soil types</span></li>
+                    </ul>
+                </div>
+
+                <div class="tech-visual fade-in">
+                    <div class="dashboard-header">
+                        <div class="dashboard-title"><strong>AI Analytics Dashboard</strong></div>
+                        <div class="status-indicator">
+                            <div style="width: 12px; height: 12px; background: var(--primary-green); border-radius: 50%; margin-right: 0.5rem;" class="glow"></div>
+                            <strong>LLM MODELS ACTIVE</strong>
+                        </div>
+                    </div>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-value"><strong>97%</strong></div>
+                            <div class="metric-label"><strong>Prediction Accuracy</strong></div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value"><strong>5.2M</strong></div>
+                            <div class="metric-label"><strong>Data Points Daily</strong></div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value"><strong>35%</strong></div>
+                            <div class="metric-label"><strong>Avg Yield Increase</strong></div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value"><strong>24/7</strong></div>
+                            <div class="metric-label"><strong>AI Chat Support</strong></div>
+                        </div>
+                    </div>
+                    <div style="background: var(--gradient-1); color: white; padding: 2rem; border-radius: 15px; text-align: center; font-weight: 700; font-size: 1.1rem;">
+                        🛰️ <strong>REAL-TIME SATELLITE + LLM ANALYSIS ACTIVE</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-visual fade-in">
+                    <div class="dashboard-header">
+                        <div class="dashboard-title"><strong>Satellite Intelligence</strong></div>
+                        <div class="status-indicator">
+                            <div style="width: 12px; height: 12px; background: var(--primary-yellow); border-radius: 50%; margin-right: 0.5rem;" class="glow"></div>
+                            <strong>MONITORING ACTIVE</strong>
+                        </div>
+                    </div>
+                    <div style="background: white; padding: 2.5rem; border-radius: 15px; text-align: center; margin-bottom: 1.5rem; box-shadow: var(--shadow);">
+                        <h4 style="margin-bottom: 1.5rem; color: var(--text-dark); font-weight: 800;">🗺️ <strong>NDVI ANALYSIS</strong></h4>
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+                            <div style="height: 80px; background: #00C851; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 1.1rem;">HIGH</div>
+                            <div style="height: 80px; background: #FFD700; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--dark-gray); font-weight: 800; font-size: 1.1rem;">MEDIUM</div>
+                            <div style="height: 80px; background: #f44336; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 1.1rem;">LOW</div>
+                        </div>
+                    </div>
+                    <div style="background: var(--gradient-2); color: white; padding: 1.5rem; border-radius: 15px; text-align: center; font-weight: 800; font-size: 1.1rem;">
+                        📡 <strong>MULTI-SATELLITE DATA FUSION</strong>
+                    </div>
+                </div>
+
+                <div class="tech-content fade-in">
+                    <h3>🛰️ <strong>Satellite Intelligence & Remote Sensing</strong></h3>
+                    <p>
+                        <strong>Advanced satellite imagery analysis</strong> provides real-time insights into crop health,
+                        growth patterns, and field conditions across millions of acres with <strong>hourly updates</strong>.
+                    </p>
+                    <ul class="tech-features">
+                        <li><i class="fas fa-satellite"></i> <span><strong>Multi-spectral satellite imagery</strong> analysis</span></li>
+                        <li><i class="fas fa-map"></i> <span><strong>NDVI & crop health monitoring</strong> in real-time</span></li>
+                        <li><i class="fas fa-thermometer-half"></i> <span><strong>Soil moisture detection</strong> with 95% accuracy</span></li>
+                        <li><i class="fas fa-eye"></i> <span><strong>Anomaly detection algorithms</strong> for early warning</span></li>
+                        <li><i class="fas fa-calendar-alt"></i> <span><strong>Historical trend analysis</strong> & predictions</span></li>
+                        <li><i class="fas fa-comments"></i> <span><strong>Chat with satellite data</strong> using natural language</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="section-container">
+            <div class="section-title fade-in">
+                <h2><strong>How FarmHub.AI Revolutionizes Farming</strong></h2>
+                <p><strong>Intelligent automation</strong> through multilingual conversational AI, satellite monitoring, and predictive analytics that transforms agricultural operations into smart, data-driven decisions across all Indian languages.</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card fade-in">
+                    <div class="step-number"><strong>1</strong></div>
+                    <h4><strong>Chat & Data Collection</strong></h4>
+                    <p><strong>Simply ask questions</strong> while our AI gathers real-time data from satellites, weather stations, IoT sensors, and farm equipment to create comprehensive agricultural intelligence.</p>
+                </div>
+
+                <div class="step-card fade-in">
+                    <div class="step-number"><strong>2</strong></div>
+                    <h4><strong>LLM Analysis</strong></h4>
+                    <p><strong>Advanced language models</strong> process and analyze collected data, understanding context and providing human-like conversations about your farm's specific needs and conditions.</p>
+                </div>
+
+                <div class="step-card fade-in">
+                    <div class="step-number"><strong>3</strong></div>
+                    <h4><strong>Intelligent Recommendations</strong></h4>
+                    <p><strong>Get personalized, actionable insights</strong> through natural conversation for optimal planting, irrigation, fertilization, and pest control based on AI analysis and expert knowledge.</p>
+                </div>
+
+                <div class="step-card fade-in">
+                    <div class="step-number"><strong>4</strong></div>
+                    <h4><strong>Automated Smart Actions</strong></h4>
+                    <p><strong>Implement automated operations</strong> through smart irrigation systems, drone deployment, and equipment scheduling for maximum efficiency and productivity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item fade-in" data-target="50000">
+                <h3><strong>0</strong></h3>
+                <p><strong>Active Users Signups</strong></p>
+            </div>
+            <div class="stat-item fade-in" data-target="100000">
+                <h3><strong>0</strong></h3>
+                <p><strong>Satellite Monitored Acres</strong></p>
+            </div>
+            <div class="stat-item fade-in" data-target="25">
+                <h3><strong>0</strong></h3>
+                <p><strong>% Yield Increase</strong></p>
+            </div>
+            <div class="stat-item fade-in" data-target="91">
+                <h3><strong>0</strong></h3>
+                <p><strong>% AI Accuracy</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="section-container">
+            <div class="section-title fade-in">
+                <h2><strong>Next-Generation Smart Farming Features</strong></h2>
+                <p><strong>Everything you need</strong> to maximize agricultural productivity, sustainability, and profitability in one intelligent, multilingual conversational platform supporting 15+ Indian languages.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3><strong>AI Assistant (15+ Indian Languages)</strong></h3>
+                    <p><strong>Talk to your farm in any Indian language.</strong> Ask questions and get insights in Hindi, Marathi, Gujarati, Pubjabi, or any regional language through advanced conversational AI with local farming knowledge.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                    <h3><strong>Satellite Monitoring</strong></h3>
+                    <p><strong>Real-time satellite intelligence</strong> with NDVI analysis to monitor crop health, growth patterns, and field conditions with hourly updates and AI insights.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3><strong>AI Crop Advisory</strong></h3>
+                    <p><strong>Personalized recommendations</strong> for planting, irrigation, fertilization, and pest control through intelligent conversations and machine learning algorithms.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud-rain"></i>
+                    </div>
+                    <h3><strong>Weather Intelligence</strong></h3>
+                    <p><strong>Hyperlocal forecasts</strong> with severe weather alerts and climate pattern analysis for informed decision-making through conversational queries.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3><strong>Market Analytics</strong></h3>
+                    <p><strong>Real-time commodity intelligence</strong> with price predictions and market trends to maximize profits through AI-powered market analysis and chat queries.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3><strong>Predictive Protection</strong></h3>
+                    <p><strong>Early detection systems</strong> for diseases, pests, and nutrient deficiencies using computer vision and predictive modeling with instant chat alerts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="section-container">
+            <div class="contact-content">
+                <div class="section-title fade-in">
+                    <h2><strong>Transform Your Agriculture Today</strong></h2>
+                    <p><strong>Join thousands of farmers and government agencies</strong> already benefiting from multilingual AI agricultural intelligence. Start your journey to increased yields and sustainable farming through conversational AI in 15+ Indian languages.</p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-card fade-in">
+                        <i class="fas fa-phone"></i>
+                        <h4><strong>Phone Support</strong></h4>
+                        <p><strong>+91-9004592208</strong></p>
+                    </div>
+                    <div class="contact-card fade-in">
+                        <i class="fas fa-envelope"></i>
+                        <h4><strong>Email</strong></h4>
+                        <p><strong>contact@farmhub.ai</strong></p>
+                    </div>
+                    <div class="contact-card fade-in">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4><strong>Global Offices</strong></h4>
+                        <p><strong>Pune • Mumbai • Delhi • Bangalore</strong></p>
+                    </div>
+                </div>
+
+                <div class="cta-buttons fade-in">
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        <strong>START FREE TRIAL</strong>
+                    </a>
+                    <a href="#" class="btn btn-secondary">
+                        <i class="fas fa-calendar"></i>
+                        <strong>SCHEDULE DEMO</strong>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <a href="#" class="footer-logo">
+                <span class="farm">Farm</span><span class="hub">Hub</span><span class="ai">.AI</span>
+            </a>
+            <div class="footer-content">
+                <p>
+                    <strong>Revolutionizing agriculture through advanced AI with comprehensive Indian language support.</strong> Empowering farmers and governments
+                    worldwide to achieve sustainable food security and agricultural prosperity through intelligent conversations in 15+ Indian languages including Hindi, Marathi, Gujarati, Pubjabi, and more.
+                </p>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FarmHub.AI. All rights reserved. <strong>Transforming agriculture through advanced AI with comprehensive Indian language support.</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (mobileToggle && navMenu) {
+            mobileToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                const icon = this.querySelector('i');
+                if (icon) {
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                }
+            });
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header Background on Scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (header) {
+                if (window.scrollY > 100) {
+                    header.style.background = 'rgba(255, 255, 255, 0.98)';
+                    header.style.boxShadow = '0 5px 30px rgba(0,0,0,0.15)';
+                } else {
+                    header.style.background = 'rgba(255, 255, 255, 0.98)';
+                    header.style.boxShadow = '0 15px 35px rgba(0,0,0,0.1)';
+                }
+            }
+        });
+
+        // Scroll Animation Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(function(el) {
+            observer.observe(el);
+        });
+
+        // Counter Animation for Stats
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(function() {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+
+                if (target >= 1000000) {
+                    element.innerHTML = '<strong>' + (current / 1000000).toFixed(1) + 'M</strong>';
+                } else if (target >= 1000) {
+                    element.innerHTML = '<strong>' + (current / 1000).toFixed(0) + 'K</strong>';
+                } else {
+                    element.innerHTML = '<strong>' + Math.floor(current) + '</strong>';
+                }
+            }, 20);
+        }
+
+        // Animate stats when they come into view
+        const statsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    const statValue = entry.target.querySelector('h3');
+                    const target = parseInt(entry.target.getAttribute('data-target'));
+
+                    if (statValue && target) {
+                        animateCounter(statValue, target);
+                        statsObserver.unobserve(entry.target);
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stat-item').forEach(function(item) {
+            statsObserver.observe(item);
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (navMenu && mobileToggle &&
+                !navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+                navMenu.classList.remove('active');
+                const icon = mobileToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            }
+        });
+
+        // Add subtle parallax effect to hero
+        window.addEventListener('scroll', function() {
+            const hero = document.querySelector('.hero');
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+
+            if (hero) {
+                hero.style.transform = `translateY(${rate}px)`;
+            }
+        });
+
+        // Enhanced chat animation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate chat bubbles in sequence
+            const chatBubbles = document.querySelectorAll('.chat-bubble');
+            chatBubbles.forEach((bubble, index) => {
+                bubble.style.animationDelay = `${index * 0.5}s`;
+            });
+
+            // Add hover effects to callout cards
+            const calloutCards = document.querySelectorAll('.callout-card, .bottom-callout');
+            calloutCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.05)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
